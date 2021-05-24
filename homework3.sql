@@ -1,0 +1,23 @@
+ALTER TABLE book ADD price INT;
+UPDATE book SET price = 30 WHERE id IN (1,2,3);
+UPDATE book SET price = 40 WHERE id IN (4,5,6);
+UPDATE book SET price = 60 WHERE id IN (7,8,9);
+UPDATE book SET price = 50 WHERE id=10;
+
+SELECT * FROM book;
+UPDATE book SET authors_surname = 'Johnson' WHERE id IN (1,2);
+SELECT COUNT(authors_awards) FROM book;
+SELECT * FROM book WHERE quantity_of_pages = (SELECT min(quantity_of_pages) FROM book);
+SELECT max(quantity_of_pages) FROM book;
+SELECT avg(price) FROM book;
+SELECT sum(price) FROM book WHERE category='Programming';
+SELECT min(price) FROM book;
+SELECT * FROM book WHERE price = (SELECT min(price) FROM book);
+SELECT * FROM book WHERE category LIKE 'Program%';
+SELECT * FROM book WHERE authors_name LIKE '%ua';
+SELECT * FROM book WHERE books_name LIKE 'Design%';
+SELECT * FROM book WHERE price BETWEEN 50 AND 120;
+SELECT * FROM book WHERE price NOT BETWEEN 200 AND 600;
+DELETE FROM book WHERE id=2;
+DELETE FROM book WHERE books_name='Effective Java';
+DELETE FROM book WHERE isbn='ABC123';
